@@ -7,6 +7,7 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jspecify.annotations.Nullable;
 
 /** Checks the latest public GitHub release without blocking the server thread. */
 final class UpdateChecker {
@@ -42,7 +43,12 @@ final class UpdateChecker {
                 String latestTag;
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(
                         connection.getInputStream(), StandardCharsets.UTF_8))) {
-                    latestTag = parseTagName(reader.lines().reduce("", String::concat));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    latestTag = parseTagName(response.toString());
                 }
 
                 if (latestTag == null) {
@@ -50,7 +56,7 @@ final class UpdateChecker {
                     return;
                 }
 
-                String currentVersion = plugin.getDescription().getVersion();
+                String currentVersion = plugin.getPluginMeta().getVersion();
                 if (!currentVersion.equals(normalizeVersion(latestTag))) {
                     plugin.getLogger().info("========================================");
                     plugin.getLogger().info("¡Nueva versión disponible! " + currentVersion + " -> " + latestTag);
@@ -71,7 +77,7 @@ final class UpdateChecker {
         return tag.startsWith("v") || tag.startsWith("V") ? tag.substring(1) : tag;
     }
 
-    private static String parseTagName(String json) {
+    private static @Nullable String parseTagName(String json) {
         String key = "\"tag_name\"";
         int keyIndex = json.indexOf(key);
         if (keyIndex == -1) {

@@ -1,6 +1,6 @@
 name: CustomMobsNames
 main: com.wazustudio.spigot.custommobsnames.CustomMobsNamesPlugin
-version: 1.0.0
+version: 1.0.1
 api-version: '26.1'
 author: WazuStudio
 website: https://wazustudio.com

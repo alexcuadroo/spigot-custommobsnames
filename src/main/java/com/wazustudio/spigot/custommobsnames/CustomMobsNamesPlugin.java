@@ -31,6 +31,7 @@ import org.bukkit.event.entity.EntityRemoveEvent;
 import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Pone un nombre personalizado (con colores) encima de las criaturas,
@@ -86,7 +87,8 @@ public final class CustomMobsNamesPlugin extends JavaPlugin implements Listener 
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command,
+            @NonNull String label, @NonNull String[] args) {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("custommobsnames.reload")) {
                 sender.sendMessage(PREFIX + "§cNo tienes permiso para usar este comando.");

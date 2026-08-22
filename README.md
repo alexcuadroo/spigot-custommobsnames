@@ -3,12 +3,6 @@
 Plugin para servidores **Paper 26.1+** (Minecraft 26.1.2, Java 25) que pone un
 **nombre personalizado encima de las criaturas**, con soporte de **colores**.
 
-## Créditos
-
-Este proyecto es un derivado de
-[WazuStudio/spigot-custommobsnames](https://github.com/WazuStudio/spigot-custommobsnames).
-El crédito por la implementación original corresponde a **WazuStudio**.
-
 ## Características
 
 - Lista de nombres por criatura en `config.yml` (se elige uno al azar).
@@ -25,7 +19,7 @@ Requiere **Java 25** y **Maven**:
 mvn clean package
 ```
 
-El jar queda en `target/CustomMobsNames-1.0.0.jar`. Guárdalo en la carpeta `plugins/`
+El jar queda en `target/CustomMobsNames-1.0.1.jar`. Guárdalo en la carpeta `plugins/`
 del servidor y reinicia (o ejecuta `/custommobsnames reload` con una
 configuración ya guardada).
 
@@ -65,11 +59,13 @@ mobs:
 
 ### Actualizaciones
 
-Al iniciar, el plugin consulta en segundo plano la última release pública de
+Al iniciar, el plugin consulta en segundo plano la última release de
 [GitHub](https://github.com/WazuStudio/spigot-custommobsnames/releases). Si hay
 una versión nueva, la consola muestra la versión instalada, la nueva y el enlace
 de descarga. La comprobación tiene un límite de cinco segundos y nunca bloquea el
-hilo del servidor.
+hilo del servidor. Esta comprobación requiere que el repositorio y sus releases
+sean públicos; si el repositorio es privado, GitHub devolverá un aviso HTTP en la
+consola al iniciarse el plugin.
 
 ### Añadir sonidos nuevos
 
@@ -138,4 +134,4 @@ Si usas `<tag>` en un nombre se interpreta como **MiniMessage**.
 
 ## Licencia
 
-MIT - ver [LICENSE](LICENSE).
+GNU Lesser General Public License v2.1 (LGPL-2.1) - ver [LICENSE](LICENSE).
