@@ -1,0 +1,88 @@
+# ═══════════════════════════════════════════════════════════════
+#   CustomMobsNames - Configuración
+#   Minecraft 26.1+ / Paper
+# ═══════════════════════════════════════════════════════════════
+
+settings:
+  # Cambia el nombre de los mobs cuando aparecen en el mundo.
+  # DEFAULT: true
+  set-mob-name-on-spawn: true
+
+  # Cambia el nombre de los mobs cuando se cargan sus chunks.
+  # Con esto también se aplican los nombres a los mobs que ya
+  # existían antes de activar el plugin o al recargarlo.
+  # DEFAULT: true
+  set-mob-name-on-chunk-load: true
+
+  # Distancia (en bloques) a la que se muestra la etiqueta con el nombre.
+  # Si el jugador está más lejos, el nombre se oculta y no se ve desde lejos.
+  # Pon -1 o 0 para que las etiquetas se vean siempre (comportamiento original).
+  # DEFAULT: 10
+  name-tag-range: 10
+
+  # Cada cuántos ticks se comprueba si hay jugadores dentro del rango
+  # para mostrar/ocultar las etiquetas (20 ticks = 1 segundo).
+  # DEFAULT: 20
+  name-tag-check-interval: 20
+
+  # Mundos donde NO se cambiará ningún nombre.
+  disabled-worlds:
+  - 'disabled_world'
+
+# ═══════════════════════════════════════════════════════════════
+#   NOMBRES DE CRIATURAS
+#
+#   Clave: usa el id de la criatura en minúsculas
+#   (pig, cow, zombie, creeper, mooshroom, zombified_piglin ...).
+#   También funcionan los nombres antiguos: mushroom_cow,
+#   snowman, pig_zombie.
+#
+#   Colores:
+#     &c rojo        &6 dorado        &e amarillo
+#     &a verde       &b azul claro    &3 aguamarina
+#     &9 azul        &d rosa          &5 morado
+#     &f blanco      &7 gris          &8 gris oscuro
+#     &0 negro       &1 azul oscuro   &2 verde oscuro
+#     &4 rojo oscuro &l negrita       &o cursiva
+#     &n subrayado   &m tachado       &k ofuscado
+#     &r reset
+#
+#   También puedes usar MiniMessage: <red>, <yellow>,
+#   <bold>, <gradient:red:blue>...
+#
+#   force-change: cambia el nombre aunque la criatura ya tenga
+#   uno (¡OJO! puede renombrar mascotas). DEFAULT: false
+#
+#   description: (solo para mannequins) texto opcional que aparece
+#   debajo del nombre. Por defecto los mannequins muestran "NPC"
+#   bajo el nombre; este plugin lo quita automáticamente. Con esta
+#   clave puedes poner tu propio texto (también admite colores y
+#   MiniMessage). DEFAULT: ninguno (se oculta)
+# ═══════════════════════════════════════════════════════════════
+mobs:
+  # Cerdo -> "Pedro" en rojo
+  pig:
+    custom-names:
+    - '&cPedro'
+
+  # Varios nombres en una lista: se elige uno al azar por criatura
+  sheep:
+    force-change: true
+    custom-names:
+    - '&7Sheep &c<3'
+    - '&eOveja &aFeliz'
+
+  # Ejemplo con varios estilos:
+  # zombie:
+  #   custom-names:
+  #   - '&2Zombie'
+  #   - '&aZombie &lÉLITE'
+  #   - '<red>Zombi <gradient:green:blue>oscuro</gradient>'
+
+  # Ejemplo de mannequin (criatura de Minecraft 26.1):
+  # sin la clave "description" el plugin oculta la etiqueta "NPC"
+  # que aparece debajo del nombre por defecto.
+  # mannequin:
+  #   custom-names:
+  #   - '&dVendedor'
+  #   description: '&7Tienda de pociones'

@@ -1,0 +1,15 @@
+name: CustomMobsNames
+main: com.wazustudio.spigot.custommobsnames.CustomMobsNamesPlugin
+version: 1.0.0
+api-version: '26.1'
+author: WazuStudio
+website: https://wazustudio.com
+description: Muestra un nombre personalizado (con colores) encima de las criaturas.
+commands:
+  custommobsnames:
+    description: Comando principal del plugin
+    usage: /custommobsnames reload
+permissions:
+  custommobsnames.reload:
+    description: Permiso para usar /custommobsnames reload
+    default: op
