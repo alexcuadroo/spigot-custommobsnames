@@ -74,7 +74,7 @@ final class UpdateChecker {
     }
 
     private static String normalizeVersion(String tag) {
-        return tag.startsWith("v") || tag.startsWith("V") ? tag.substring(1) : tag;
+        return tag.replaceFirst("(?i)^v\\\\.?", "");
     }
 
     private static @Nullable String parseTagName(String json) {
