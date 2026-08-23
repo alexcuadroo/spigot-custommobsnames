@@ -88,7 +88,7 @@ public final class CustomMobsNamesPlugin extends JavaPlugin implements Listener 
 
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command,
-            @NonNull String label, @NonNull String[] args) {
+            @NonNull String label, String @NonNull [] args) {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("custommobsnames.reload")) {
                 sender.sendMessage(PREFIX + "§cNo tienes permiso para usar este comando.");
