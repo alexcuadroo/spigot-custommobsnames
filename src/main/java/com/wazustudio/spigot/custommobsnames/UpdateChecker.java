@@ -9,13 +9,13 @@ import java.nio.charset.StandardCharsets;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jspecify.annotations.Nullable;
 
-/** Checks the latest public GitHub release without blocking the server thread. */
+/**
+ * Checks the latest public GitHub release without blocking the server thread.
+ */
 final class UpdateChecker {
 
-    private static final String GITHUB_API_URL =
-            "https://api.github.com/repos/WazuStudio/spigot-custommobsnames/releases/latest";
-    private static final String RELEASES_URL =
-            "https://github.com/WazuStudio/spigot-custommobsnames/releases/tag/";
+    private static final String GITHUB_API_URL = "https://api.github.com/repos/alexcuadroo/spigot-custommobsnames/releases/latest";
+    private static final String RELEASES_URL = "https://github.com/alexcuadroo/spigot-custommobsnames/releases/tag/";
 
     private final JavaPlugin plugin;
 
